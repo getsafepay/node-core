@@ -1,5 +1,6 @@
 import { resourceNamespace } from "./ResourceNamespace.js";
 import { Object } from "./resources/Customers/Object.js";
+import { Object as GuestObject } from "./resources/Guests/Object.js";
 import { Addresses } from "./resources/Customers/Addresses.js";
 import { PaymentMethods } from "./resources/Customers/PaymentMethods.js";
 import { Cancel } from "./resources/Order/Cancel.js";
@@ -21,4 +22,8 @@ export const Order = resourceNamespace("order", {
 
 export const Payments = resourceNamespace("payments", {
   Session: Session,
+});
+
+export const Guests = resourceNamespace("guests", {
+  Object: GuestObject,
 });
