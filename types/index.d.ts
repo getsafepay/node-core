@@ -1,5 +1,6 @@
 ///<reference path='./lib.d.ts' />
 ///<reference path='./net/net.d.ts' />
+///<reference path='./Guests/Object.d.ts' />
 ///<reference path='./Customers/Object.d.ts' />
 ///<reference path='./Customers/Addresses.d.ts' />
 ///<reference path='./Customers/PaymentMethods.d.ts' />
@@ -31,6 +32,10 @@ declare module "@sfpy/node-core" {
 
     payments: {
       session: Safepay.Payments.Session;
+    };
+
+    guests: {
+      object: Safepay.Guests.Object;
     };
   }
   export default Safepay;
