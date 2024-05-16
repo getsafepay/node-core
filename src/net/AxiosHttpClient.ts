@@ -52,6 +52,17 @@ export class AxiosHttpClient extends HttpClient {
                 message: data.error,
               },
             });
+
+          // @ts-ignore
+          } else if (data.message) {
+            return new AxiosHttpClientResponse({
+                status: error.response.status,
+                headers: error.response.headers,
+                data: {
+                // @ts-ignore
+                message: data.message,
+                },
+            });
           } else {
             return new AxiosHttpClientResponse({
               status: error.response.status,
