@@ -11,6 +11,6 @@ export const Configure = SafepayResource.extend({
 
   metadata: safepayMethod({
     method: "POST",
-    path: "/payments/v3/{tracker}",
+    path: "/payments/v3/{tracker}/metadata",
   }),
 });
