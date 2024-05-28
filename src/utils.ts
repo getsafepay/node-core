@@ -6,7 +6,7 @@ import {
   UrlInterpolator,
 } from "./types.js";
 
-const OPTIONS_KEYS = ["secret", "jwt", "timeout"];
+const OPTIONS_KEYS = ["secret", "jwt", "timeout", "ipAddress", "userAgent"];
 
 type Settings = {
   timeout?: number;
@@ -65,6 +65,12 @@ export function getOptionsFromArgs(args: RequestArgs): Options {
       }
       if (Number.isInteger(params.timeout)) {
         opts.settings.timeout = params.timeout as number;
+      }
+      if (params.ipAddress) {
+        opts.headers["X-SFPY-IP-ADDRESS"] = params.ipAddress;
+      }
+      if (params.userAgent) {
+        opts.headers["X-SFPY-USER-AGENT"] = params.userAgent;
       }
     }
   }
