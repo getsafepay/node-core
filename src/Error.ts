@@ -48,6 +48,16 @@ export class SafepayAuthenticationError extends SafepayError {
 }
 
 /**
+ * SafepayConflictError is raised when there is conflicting data on the server
+ * e.g a user already exists
+ */
+export class SafepayConflictError extends SafepayError {
+  constructor(raw: SafepayRawError = {}) {
+    super(raw, "SafepayConflictError");
+  }
+}
+
+/**
  * Any other error from Safepay not specifically captured above
  */
 export class SafepayUnknownError extends SafepayError {

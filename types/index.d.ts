@@ -8,6 +8,10 @@
 ///<reference path='./Order/Configure.d.ts' />
 ///<reference path='./Order/Tracker.d.ts' />
 ///<reference path='./Payments/Session.d.ts' />
+///<reference path='./User/SignUp.d.ts' />
+///<reference path='./User/Password.d.ts' />
+///<reference path='./User/Object.d.ts' />
+///<reference path='./Auth/Login.d.ts' />
 
 declare module "@sfpy/node-core" {
   // Added to in other modules, referenced above.
@@ -36,6 +40,16 @@ declare module "@sfpy/node-core" {
 
     guests: {
       object: Safepay.Guests.Object;
+    };
+
+    user: {
+      signUp: Safepay.User.SignUp;
+      password: Safepay.User.Password;
+      object: Safepay.User.Object;
+    };
+
+    auth: {
+      login: Safepay.Auth.Login;
     };
   }
   export default Safepay;

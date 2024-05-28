@@ -11,6 +11,7 @@ import {
   SafepayAPIError,
   SafepayAuthenticationError,
   SafepayInvalidRequestError,
+  SafepayConflictError,
   SafepayUnknownError,
 } from "./Error.js";
 
@@ -47,6 +48,8 @@ export class RequestSender {
               err = new SafepayInvalidRequestError(message);
             } else if (statusCode === 404) {
               err = new SafepayAPIError(message);
+            } else if (statusCode === 409) {
+              err = new SafepayConflictError(message);
             } else {
               err = new SafepayUnknownError(message);
             }
@@ -134,7 +137,6 @@ export class RequestSender {
           return this._jsonResponseHandler(callback)(res);
         })
         .catch((error: Error) => {
-          console.log("ZIYAD");
           return callback(error);
         });
     };
