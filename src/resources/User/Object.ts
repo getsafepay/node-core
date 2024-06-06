@@ -2,7 +2,7 @@ import { SafepayResource } from "../../SafepayResource.js";
 const safepayMethod = SafepayResource.method;
 
 export const Object = SafepayResource.extend({
-  basePath: "/",
+  basePath: "/user",
 
   exists: safepayMethod({
     method: "GET",
