@@ -2,7 +2,7 @@ import { SafepayResource } from "../../SafepayResource.js";
 const safepayMethod = SafepayResource.method;
 
 export const SignUp = SafepayResource.extend({
-  basePath: "/",
+  basePath: "/user",
 
   register: safepayMethod({
     method: "POST",
