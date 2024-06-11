@@ -22,7 +22,7 @@ export type RequestOptions = {
 export type RequestOpts = {
   requestMethod: string;
   requestPath: string;
-  bodyData: RequestData;
+  bodyData: RequestData | undefined;
   queryData: RequestData;
   auth: string | null;
   headers: RequestHeaders;
@@ -102,7 +102,7 @@ export type RequestSender = {
     method: string,
     host: string | null,
     path: string,
-    data: RequestData,
+    data: RequestData | undefined,
     auth: string | null,
     options: RequestOptions,
     callback: RequestCallback

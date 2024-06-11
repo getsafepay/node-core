@@ -157,7 +157,7 @@ SafepayResource.prototype = {
     const headers = Object.assign(options.headers, spec.headers);
 
     const dataInQuery = spec.method === "GET" || spec.method === "DELETE";
-    const bodyData = dataInQuery ? {} : data;
+    const bodyData = dataInQuery ? undefined : data;
     const queryData = dataInQuery ? data : {};
 
     return {
