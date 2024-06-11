@@ -1,6 +1,6 @@
 {
   "name": "@sfpy/node-core",
-  "version": "0.0.9",
+  "version": "0.1.0",
   "description": "Official NodeJS Core to create SDKs for Safepay APIs",
   "main": "cjs/safepay.cjs.node.js",
   "types": "types/index.d.ts",
