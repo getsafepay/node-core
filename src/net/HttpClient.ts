@@ -10,6 +10,7 @@ export interface HttpClientInterface {
     method: string,
     headers: RequestHeaders,
     requestData: RequestData,
+    requestParams: RequestData,
     timeout: number
   ) => Promise<HttpClientResponseInterface>;
 }
@@ -44,6 +45,7 @@ export class HttpClient implements HttpClientInterface {
     method: string,
     headers: RequestHeaders,
     requestData: RequestData,
+    requestParams: RequestData,
     timeout: number
   ): Promise<HttpClientResponseInterface> {
     throw new Error("makeRequest not implemented.");

@@ -108,6 +108,7 @@ export class RequestSender {
     host: string | null,
     path: string,
     data: RequestData,
+    params: RequestData,
     auth: string | null,
     options: RequestOptions = {},
     callback: RequestCallback
@@ -130,6 +131,7 @@ export class RequestSender {
           method,
           headers,
           data,
+          params,
           timeout
         );
       req

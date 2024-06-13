@@ -103,6 +103,7 @@ export type RequestSender = {
     host: string | null,
     path: string,
     data: RequestData | undefined,
+    params: RequestData,
     auth: string | null,
     options: RequestOptions,
     callback: RequestCallback

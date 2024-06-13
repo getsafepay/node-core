@@ -19,6 +19,7 @@ export class AxiosHttpClient extends HttpClient {
     method: string,
     headers: RequestHeaders,
     requestData: RequestData,
+    requestParams: RequestData,
     timeout: number
   ): Promise<HttpClientResponseInterface> {
     return axios
@@ -29,6 +30,7 @@ export class AxiosHttpClient extends HttpClient {
         url: `${host}${path}`,
         headers: headers,
         data: requestData,
+        params: requestParams,
         paramsSerializer: (params: Record<string, any>) => {
           return qs.stringify(params, {
             arrayFormat: "indices",
