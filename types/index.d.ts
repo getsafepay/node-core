@@ -51,6 +51,10 @@ declare module "@sfpy/node-core" {
     auth: {
       login: Safepay.Auth.Login;
     };
+
+    reporter: {
+        payments: Safepay.Reporter.Payments;
+      };
   }
   export default Safepay;
 }

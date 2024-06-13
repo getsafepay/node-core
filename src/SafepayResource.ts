@@ -200,6 +200,7 @@ SafepayResource.prototype = {
         opts.host,
         opts.requestPath,
         opts.bodyData,
+        opts.queryData,
         opts.auth,
         { headers, settings },
         requestCallback
