@@ -93,6 +93,7 @@ export type SafepayObject = {
   _setSecretKey: (secret: string) => void;
   _requestSender: RequestSender;
   _getPropsFromConfig: (config: Record<string, unknown>) => UserProvidedConfig;
+  errors: any;
 };
 
 export type UrlInterpolator = (params: Record<string, unknown>) => string;

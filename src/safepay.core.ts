@@ -1,3 +1,4 @@
+import * as _Error from './Error.js';
 import { RequestSender } from "./RequestSender.js";
 import { SafepayObject, UserProvidedConfig } from "./types.js";
 import { SafepayResource } from "./SafepayResource.js";
@@ -54,6 +55,8 @@ export function createSafepay(
 
     this._setApiField("authType", this._api.authType);
 
+    this.errors = _Error;
+
     this._requestSender = requestSender(this);
 
     // Expose SafepayResource on the instance too
@@ -61,9 +64,12 @@ export function createSafepay(
     this.SafepayResource = Safepay.SafepayResource;
   }
 
+  Safepay.errors = _Error;
+
   Safepay.prototype = {
     SafepayResource: null!,
     _api: null!,
+    errors: null!,
     _requestSender: null!,
 
     /**
