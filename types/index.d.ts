@@ -1,5 +1,6 @@
 ///<reference path='./lib.d.ts' />
 ///<reference path='./net/net.d.ts' />
+///<reference path='./Errors.d.ts' />
 ///<reference path='./Guests/Object.d.ts' />
 ///<reference path='./Customers/Object.d.ts' />
 ///<reference path='./Customers/Addresses.d.ts' />
@@ -13,15 +14,21 @@
 ///<reference path='./User/Object.d.ts' />
 ///<reference path='./Auth/Login.d.ts' />
 ///<reference path='./Invoice/Quicklinks.d.ts' />
+///<reference path='./Reporter/Payments.d.ts' />
 
 declare module "@sfpy/node-core" {
   // Added to in other modules, referenced above.
   export namespace Safepay {}
   export function createSafepay(): Safepay;
+
   export class Safepay {
     static Safepay: typeof Safepay;
     constructor(apiKey: string, config: Safepay.SafepayConfig);
-    SafepayResource: Safepay.SafepayResource;
+
+    /**
+     * API Errors
+     */
+    errors: typeof Safepay.errors;
 
     customers: {
       object: Safepay.Customers.Object;
