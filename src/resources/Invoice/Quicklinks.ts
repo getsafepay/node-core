@@ -21,6 +21,6 @@ export const Quicklinks = SafepayResource.extend({
 
   success: safepayMethod({
     method: "PUT",
-    path: "/v2/{quicklink}/pay-success",
+    path: "/v2/pay-success",
   }),
 });
