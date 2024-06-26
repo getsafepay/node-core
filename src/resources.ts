@@ -11,39 +11,43 @@ import { SignUp } from "./resources/User/SignUp.js";
 import { Password } from "./resources/User/Password.js";
 import { Object as UserObject } from "./resources/User/Object.js";
 import { Login } from "./resources/Auth/Login.js";
+import { Quicklinks } from "./resources/Invoice/Quicklinks.js";
 import { Payments as PaymentsResources } from "./resources/Reporter/Payments.js";
 
-
 export const Customers = resourceNamespace("customers", {
-    Object: Object,
-    Addresses: Addresses,
-    PaymentMethods: PaymentMethods,
+  Object: Object,
+  Addresses: Addresses,
+  PaymentMethods: PaymentMethods,
 });
 
 export const Order = resourceNamespace("order", {
-    Tracker: Tracker,
-    Configure: Configure,
-    Cancel: Cancel,
+  Tracker: Tracker,
+  Configure: Configure,
+  Cancel: Cancel,
 });
 
 export const Payments = resourceNamespace("payments", {
-    Session: Session,
+  Session: Session,
 });
 
 export const Guests = resourceNamespace("guests", {
-    Object: GuestObject,
+  Object: GuestObject,
 });
 
 export const User = resourceNamespace("user", {
-    SignUp: SignUp,
-    Password: Password,
-    Object: UserObject
+  SignUp: SignUp,
+  Password: Password,
+  Object: UserObject,
 });
 
 export const Auth = resourceNamespace("auth", {
-    Login: Login,
+  Login: Login,
+});
+
+export const Invoice = resourceNamespace("invoice", {
+  Quicklinks: Quicklinks,
 });
 
 export const Reporter = resourceNamespace("reporter", {
-    Payments: PaymentsResources,
+  Payments: PaymentsResources,
 });

@@ -1,12 +1,12 @@
 import { SafepayResource } from "../../SafepayResource.js";
 const safepayMethod = SafepayResource.method;
 
-export const Object = SafepayResource.extend({
+export const Quicklinks = SafepayResource.extend({
   basePath: "/quick-links",
 
   create: safepayMethod({
     method: "POST",
-    path: "/v2",
+    path: "/v2/",
   }),
 
   fetch: safepayMethod({
