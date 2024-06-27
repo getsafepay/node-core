@@ -1,4 +1,4 @@
-import * as _Error from './Error.js';
+import * as _Error from "./Error.js";
 import { RequestSender } from "./RequestSender.js";
 import { SafepayObject, UserProvidedConfig } from "./types.js";
 import { SafepayResource } from "./SafepayResource.js";
@@ -12,7 +12,12 @@ const DEFAULT_HOST = "api.getsafepay.com";
 const DEFAULT_TIMEOUT = 80000;
 const DEFAULT_AUTH_TYPE = "secret";
 const AUTH_TYPES = ["jwt", "secret"];
-const ALLOWED_CONFIG_PROPERTIES = ["httpClient", "timeout", "host", "authType"];
+const ALLOWED_CONFIG_PROPERTIES = [
+  "httpClient",
+  "timeout",
+  "host",
+  "authType",
+];
 
 type RequestSenderFactory = (safepay: SafepayObject) => RequestSender;
 
@@ -32,7 +37,7 @@ export function createSafepay(
     config: Record<string, unknown> = {}
   ): void {
     if (!(this instanceof Safepay)) {
-      return new (Safepay as any)(config);
+      return new (Safepay as any)(key, config);
     }
 
     const props = this._getPropsFromConfig(config);
@@ -40,7 +45,11 @@ export function createSafepay(
     this._api = {
       auth: null,
       host: props.host || DEFAULT_HOST,
-      timeout: validateInteger("timeout", props.timeout, DEFAULT_TIMEOUT),
+      timeout: validateInteger(
+        "timeout",
+        props.timeout,
+        DEFAULT_TIMEOUT
+      ),
       httpClient: props.httpClient || new AxiosHttpClient(),
       authType: props.authType || DEFAULT_AUTH_TYPE,
     };
@@ -127,14 +136,17 @@ export function createSafepay(
      * @private
      * This may be removed in the future.
      */
-    _getPropsFromConfig(config: Record<string, unknown>): UserProvidedConfig {
+    _getPropsFromConfig(
+      config: Record<string, unknown>
+    ): UserProvidedConfig {
       // If config is null or undefined, just bail early with no props
       if (!config) {
         throw new Error("Config object may not be empty");
       }
 
       // config can only be an object
-      const isObject = config === Object(config) && !Array.isArray(config);
+      const isObject =
+        config === Object(config) && !Array.isArray(config);
 
       if (!isObject) {
         throw new Error("Config must be an object");
@@ -145,8 +157,12 @@ export function createSafepay(
         (value) => !ALLOWED_CONFIG_PROPERTIES.includes(value)
       );
 
-      if (!AUTH_TYPES.includes(config.authType as string)) {
-        throw new Error(`authType may be one of ${AUTH_TYPES.join(", ")}`);
+      if (config.authType) {
+        if (!AUTH_TYPES.includes(config.authType as string)) {
+          throw new Error(
+            `authType may be one of ${AUTH_TYPES.join(", ")}`
+          );
+        }
       }
 
       if (values.length > 0) {

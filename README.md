@@ -38,7 +38,7 @@ safepay.customers.object.create({
   "country": "PK",
   "is_guest": false
 })
-  .then(customer => console.log(customer.token))
+  .then(customer => console.log(customer.data.token))
   .catch(error => console.error(error));
 ```
 
@@ -61,7 +61,7 @@ try {
     is_guest: false,
   });
 
-  console.log(customer.token);
+  console.log(customer.data.token);
 } catch (error) {
   console.log(error);
 }
@@ -83,7 +83,7 @@ safepay.customers.object
     country: "PK",
     is_guest: false,
   })
-  .then((customer) => {
+  .then(({ data }) => {
     // have access to the customer object
   });
 ```
