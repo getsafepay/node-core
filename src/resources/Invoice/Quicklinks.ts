@@ -2,25 +2,25 @@ import { SafepayResource } from "../../SafepayResource.js";
 const safepayMethod = SafepayResource.method;
 
 export const Quicklinks = SafepayResource.extend({
-  basePath: "/quick-links",
+  basePath: "",
 
   create: safepayMethod({
     method: "POST",
-    path: "/v2/",
+    path: "/quick-links/v2/",
   }),
 
   fetch: safepayMethod({
     method: "GET",
-    path: "/v2/{quicklink}",
+    path: "/quick-links/v2/{quicklink}",
   }),
 
   pay: safepayMethod({
     method: "POST",
-    path: "/v2/{quicklink}/pay",
+    path: "/quick-links/v2/{quicklink}/pay",
   }),
 
   success: safepayMethod({
     method: "PUT",
-    path: "/v2/pay-success",
+    path: "/quick-links/v2/pay-success",
   }),
 });
