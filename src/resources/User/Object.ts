@@ -11,7 +11,7 @@ export const Object = SafepayResource.extend({
 
   update: safepayMethod({
     method: "PUT",
-    path: "/v2/{uid}",
+    path: "/v2/",
   }),
 
   find: safepayMethod({
