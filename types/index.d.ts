@@ -15,6 +15,7 @@
 ///<reference path='./Auth/Login.d.ts' />
 ///<reference path='./Invoice/Quicklinks.d.ts' />
 ///<reference path='./Reporter/Payments.d.ts' />
+///<reference path='./Client/Passport.d.ts' />
 
 declare module "@sfpy/node-core" {
   // Added to in other modules, referenced above.
@@ -66,6 +67,10 @@ declare module "@sfpy/node-core" {
 
     reporter: {
       payments: Safepay.Reporter.Payments;
+    };
+
+    client: {
+      passport: Safepay.Client.Passport;
     };
   }
   export default Safepay;

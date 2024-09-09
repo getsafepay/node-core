@@ -13,6 +13,7 @@ import { Object as UserObject } from "./resources/User/Object.js";
 import { Login } from "./resources/Auth/Login.js";
 import { Quicklinks } from "./resources/Invoice/Quicklinks.js";
 import { Payments as PaymentsResources } from "./resources/Reporter/Payments.js";
+import { Passport } from "./resources/Client/Passport.js";
 
 export const Customers = resourceNamespace("customers", {
   Object: Object,
@@ -50,4 +51,8 @@ export const Invoice = resourceNamespace("invoice", {
 
 export const Reporter = resourceNamespace("reporter", {
   Payments: PaymentsResources,
+});
+
+export const Client = resourceNamespace("client", {
+  Passport: Passport,
 });
