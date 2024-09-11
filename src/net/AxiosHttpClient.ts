@@ -55,15 +55,15 @@ export class AxiosHttpClient extends HttpClient {
               },
             });
 
-          // @ts-ignore
+            // @ts-ignore
           } else if (data.message) {
             return new AxiosHttpClientResponse({
-                status: error.response.status,
-                headers: error.response.headers,
-                data: {
+              status: error.response.status,
+              headers: error.response.headers,
+              data: {
                 // @ts-ignore
                 message: data.message,
-                },
+              },
             });
           } else {
             return new AxiosHttpClientResponse({
@@ -75,12 +75,22 @@ export class AxiosHttpClient extends HttpClient {
               },
             });
           }
+        } else if (error.message && error.status) {
+          return new AxiosHttpClientResponse({
+            status: error.status,
+            headers: {},
+            data: {
+              // @ts-ignore
+              message: error.message,
+            },
+          });
         } else if (error.request) {
           return new AxiosHttpClientResponse({
             status: 500,
             headers: {},
             data: {
-              message: "The request was made but no response was received",
+              message:
+                "The request was made but no response was received",
             },
           });
         } else {
