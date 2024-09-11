@@ -1,4 +1,4 @@
-import { SafepayResource } from "../../SafepayResource";
+import { SafepayResource } from "../../SafepayResource.js";
 
 const safepayMethod = SafepayResource.method;
 
