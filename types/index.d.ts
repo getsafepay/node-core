@@ -18,60 +18,61 @@
 ///<reference path='./Client/Passport.d.ts' />
 
 declare module "@sfpy/node-core" {
-  // Added to in other modules, referenced above.
-  export namespace Safepay {}
-  export function createSafepay(): Safepay;
+    // Added to in other modules, referenced above.
+    export namespace Safepay { }
+    export function createSafepay(): Safepay;
 
-  export class Safepay {
-    static Safepay: typeof Safepay;
-    constructor(apiKey: string, config: Safepay.SafepayConfig);
+    export class Safepay {
+        static Safepay: typeof Safepay;
+        constructor(apiKey: string, config: Safepay.SafepayConfig);
 
-    /**
-     * API Errors
-     */
-    errors: typeof Safepay.errors;
+        /**
+         * API Errors
+         */
+        errors: typeof Safepay.errors;
 
-    customers: {
-      object: Safepay.Customers.Object;
-      addresses: Safepay.Customers.Addresses;
-      paymentMethods: Safepay.Customers.PaymentMethods;
-    };
+        customers: {
+            object: Safepay.Customers.Object;
+            addresses: Safepay.Customers.Addresses;
+            paymentMethods: Safepay.Customers.PaymentMethods;
+        };
 
-    order: {
-      tracker: Safepay.Order.Tracker;
-      configure: Safepay.Order.Configure;
-      cancel: Safepay.Order.Cancel;
-    };
+        order: {
+            tracker: Safepay.Order.Tracker;
+            configure: Safepay.Order.Configure;
+            cancel: Safepay.Order.Cancel;
+        };
 
-    payments: {
-      session: Safepay.Payments.Session;
-    };
+        payments: {
+            session: Safepay.Payments.Session;
+        };
 
-    guests: {
-      object: Safepay.Guests.Object;
-    };
+        guests: {
+            object: Safepay.Guests.Object;
+        };
 
-    user: {
-      signUp: Safepay.User.SignUp;
-      password: Safepay.User.Password;
-      object: Safepay.User.Object;
-    };
+        user: {
+            signUp: Safepay.User.SignUp;
+            password: Safepay.User.Password;
+            object: Safepay.User.Object;
+            cards: Safepay.User.Cards;
+        };
 
-    auth: {
-      login: Safepay.Auth.Login;
-    };
+        auth: {
+            login: Safepay.Auth.Login;
+        };
 
-    invoice: {
-      quicklinks: Safepay.Invoice.Quicklinks;
-    };
+        invoice: {
+            quicklinks: Safepay.Invoice.Quicklinks;
+        };
 
-    reporter: {
-      payments: Safepay.Reporter.Payments;
-    };
+        reporter: {
+            payments: Safepay.Reporter.Payments;
+        };
 
-    client: {
-      passport: Safepay.Client.Passport;
-    };
-  }
-  export default Safepay;
+        client: {
+            passport: Safepay.Client.Passport;
+        };
+    }
+    export default Safepay;
 }
