@@ -15,6 +15,8 @@ import { Quicklinks } from "./resources/Invoice/Quicklinks.js";
 import { Payments as PaymentsResources } from "./resources/Reporter/Payments.js";
 import { Passport } from "./resources/Client/Passport.js";
 import { Discount } from "./resources/Order/Discount.js";
+import { Cards } from "./resources/User/Cards.js";
+import { Vault } from "./resources/Order/Vault.js";
 
 export const Customers = resourceNamespace("customers", {
   Object: Object,
@@ -27,6 +29,7 @@ export const Order = resourceNamespace("order", {
   Configure: Configure,
   Cancel: Cancel,
   Discount: Discount,
+  Vault: Vault,
 });
 
 export const Payments = resourceNamespace("payments", {
@@ -41,6 +44,7 @@ export const User = resourceNamespace("user", {
   SignUp: SignUp,
   Password: Password,
   Object: UserObject,
+  Cards: Cards,
 });
 
 export const Auth = resourceNamespace("auth", {

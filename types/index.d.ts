@@ -9,10 +9,12 @@
 ///<reference path='./Order/Configure.d.ts' />
 ///<reference path='./Order/Tracker.d.ts' />
 ///<reference path='./Order/Discount.d.ts' />
+///<reference path='./Order/Vault.d.ts' />
 ///<reference path='./Payments/Session.d.ts' />
 ///<reference path='./User/SignUp.d.ts' />
 ///<reference path='./User/Password.d.ts' />
 ///<reference path='./User/Object.d.ts' />
+///<reference path='./User/Cards.d.ts' />
 ///<reference path='./Auth/Login.d.ts' />
 ///<reference path='./Invoice/Quicklinks.d.ts' />
 ///<reference path='./Reporter/Payments.d.ts' />
@@ -43,6 +45,7 @@ declare module "@sfpy/node-core" {
       configure: Safepay.Order.Configure;
       cancel: Safepay.Order.Cancel;
       discount: Safepay.Order.Discount;
+      vault: Safepay.Order.Vault;
     };
 
     payments: {
@@ -57,6 +60,7 @@ declare module "@sfpy/node-core" {
       signUp: Safepay.User.SignUp;
       password: Safepay.User.Password;
       object: Safepay.User.Object;
+      cards: Safepay.User.Cards;
     };
 
     auth: {
