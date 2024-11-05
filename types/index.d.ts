@@ -8,6 +8,7 @@
 ///<reference path='./Order/Cancel.d.ts' />
 ///<reference path='./Order/Configure.d.ts' />
 ///<reference path='./Order/Tracker.d.ts' />
+///<reference path='./Order/Discount.d.ts' />
 ///<reference path='./Payments/Session.d.ts' />
 ///<reference path='./User/SignUp.d.ts' />
 ///<reference path='./User/Password.d.ts' />
@@ -41,6 +42,7 @@ declare module "@sfpy/node-core" {
       tracker: Safepay.Order.Tracker;
       configure: Safepay.Order.Configure;
       cancel: Safepay.Order.Cancel;
+      discount: Safepay.Order.Discount;
     };
 
     payments: {
