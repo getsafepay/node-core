@@ -1,6 +1,7 @@
 ///<reference path='./lib.d.ts' />
 ///<reference path='./net/net.d.ts' />
 ///<reference path='./Errors.d.ts' />
+///<reference path='./Checkout.d.ts' />
 ///<reference path='./Guests/Object.d.ts' />
 ///<reference path='./Customers/Object.d.ts' />
 ///<reference path='./Customers/Addresses.d.ts' />
@@ -33,6 +34,8 @@ declare module "@sfpy/node-core" {
      * API Errors
      */
     errors: typeof Safepay.errors;
+
+    checkout: Safepay.Checkout;
 
     customers: {
       object: Safepay.Customers.Object;

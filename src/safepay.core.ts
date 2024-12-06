@@ -6,18 +6,14 @@ import { HttpClient, HttpClientResponse } from "./net/HttpClient.js";
 import { validateInteger, pascalToCamelCase } from "./utils.js";
 import { AxiosHttpClient } from "./net/AxiosHttpClient.js";
 import * as resources from "./resources.js";
+import { createCheckout } from "./Checkout.js";
 
 const DEFAULT_HOST = "api.getsafepay.com";
 
 const DEFAULT_TIMEOUT = 80000;
 const DEFAULT_AUTH_TYPE = "secret";
 const AUTH_TYPES = ["jwt", "secret"];
-const ALLOWED_CONFIG_PROPERTIES = [
-  "httpClient",
-  "timeout",
-  "host",
-  "authType",
-];
+const ALLOWED_CONFIG_PROPERTIES = ["httpClient", "timeout", "host", "authType"];
 
 type RequestSenderFactory = (safepay: SafepayObject) => RequestSender;
 
@@ -30,6 +26,7 @@ export function createSafepay(
   Safepay.SafepayResource = SafepayResource;
   Safepay.HttpClient = HttpClient;
   Safepay.HttpClientResponse = HttpClientResponse;
+  Safepay.checkout = createCheckout();
 
   function Safepay(
     this: SafepayObject,
@@ -45,11 +42,7 @@ export function createSafepay(
     this._api = {
       auth: null,
       host: props.host || DEFAULT_HOST,
-      timeout: validateInteger(
-        "timeout",
-        props.timeout,
-        DEFAULT_TIMEOUT
-      ),
+      timeout: validateInteger("timeout", props.timeout, DEFAULT_TIMEOUT),
       httpClient: props.httpClient || new AxiosHttpClient(),
       authType: props.authType || DEFAULT_AUTH_TYPE,
     };
@@ -71,6 +64,8 @@ export function createSafepay(
     // Expose SafepayResource on the instance too
     // @ts-ignore
     this.SafepayResource = Safepay.SafepayResource;
+
+    this.checkout = createCheckout();
   }
 
   Safepay.errors = _Error;
@@ -80,6 +75,7 @@ export function createSafepay(
     _api: null!,
     errors: null!,
     _requestSender: null!,
+    checkout: null!,
 
     /**
      * @private
@@ -136,17 +132,14 @@ export function createSafepay(
      * @private
      * This may be removed in the future.
      */
-    _getPropsFromConfig(
-      config: Record<string, unknown>
-    ): UserProvidedConfig {
+    _getPropsFromConfig(config: Record<string, unknown>): UserProvidedConfig {
       // If config is null or undefined, just bail early with no props
       if (!config) {
         throw new Error("Config object may not be empty");
       }
 
       // config can only be an object
-      const isObject =
-        config === Object(config) && !Array.isArray(config);
+      const isObject = config === Object(config) && !Array.isArray(config);
 
       if (!isObject) {
         throw new Error("Config must be an object");
@@ -159,9 +152,7 @@ export function createSafepay(
 
       if (config.authType) {
         if (!AUTH_TYPES.includes(config.authType as string)) {
-          throw new Error(
-            `authType may be one of ${AUTH_TYPES.join(", ")}`
-          );
+          throw new Error(`authType may be one of ${AUTH_TYPES.join(", ")}`);
         }
       }
 

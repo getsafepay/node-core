@@ -93,6 +93,7 @@ export type SafepayObject = {
   _setSecretKey: (secret: string) => void;
   _requestSender: RequestSender;
   _getPropsFromConfig: (config: Record<string, unknown>) => UserProvidedConfig;
+  checkout: any;
   errors: any;
 };
 
@@ -122,3 +123,29 @@ export enum AuthTypes {
   Jwt = "jwt",
   Secret = "secret",
 }
+
+export type Env = "development" | "sandbox" | "production";
+
+export type Finalizers =
+  | "hosted"
+  | "mobile"
+  | "popup"
+  | "woocommerce"
+  | "shopify";
+
+type CreateCheckoutUrlParams = {
+  env: Env;
+  tbt: string;
+  tracker: string;
+  source: Finalizers;
+  user_id?: string;
+  address?: string;
+  order_id?: string;
+  is_implicit?: boolean;
+  cancel_url?: string;
+  redirect_url?: string;
+};
+
+export type CreateCheckoutUrlFunction = (
+  params: CreateCheckoutUrlParams
+) => string;
