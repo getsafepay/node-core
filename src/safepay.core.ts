@@ -6,7 +6,7 @@ import { HttpClient, HttpClientResponse } from "./net/HttpClient.js";
 import { validateInteger, pascalToCamelCase } from "./utils.js";
 import { AxiosHttpClient } from "./net/AxiosHttpClient.js";
 import * as resources from "./resources.js";
-import { createCheckoutUrl } from "./Checkout.js";
+import { createCheckout } from "./Checkout.js";
 
 const DEFAULT_HOST = "api.getsafepay.com";
 
@@ -26,6 +26,7 @@ export function createSafepay(
   Safepay.SafepayResource = SafepayResource;
   Safepay.HttpClient = HttpClient;
   Safepay.HttpClientResponse = HttpClientResponse;
+  Safepay.checkout = createCheckout();
 
   function Safepay(
     this: SafepayObject,
@@ -63,6 +64,8 @@ export function createSafepay(
     // Expose SafepayResource on the instance too
     // @ts-ignore
     this.SafepayResource = Safepay.SafepayResource;
+
+    this.checkout = createCheckout();
   }
 
   Safepay.errors = _Error;
@@ -72,6 +75,7 @@ export function createSafepay(
     _api: null!,
     errors: null!,
     _requestSender: null!,
+    checkout: null!,
 
     /**
      * @private
@@ -162,8 +166,6 @@ export function createSafepay(
 
       return config;
     },
-
-    checkout: createCheckoutUrl,
   } as SafepayObject;
 
   return Safepay;

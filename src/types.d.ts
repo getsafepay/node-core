@@ -93,7 +93,7 @@ export type SafepayObject = {
   _setSecretKey: (secret: string) => void;
   _requestSender: RequestSender;
   _getPropsFromConfig: (config: Record<string, unknown>) => UserProvidedConfig;
-  checkout: CreateCheckoutUrlFunction;
+  checkout: any;
   errors: any;
 };
 
@@ -124,18 +124,17 @@ export enum AuthTypes {
   Secret = "secret",
 }
 
-export type Host = "development" | "sandbox" | "production";
+export type Env = "development" | "sandbox" | "production";
 
-export enum Finalizers {
-  HOSTED = "hosted",
-  MOBILE = "mobile",
-  POPUP = "popup",
-  WOOCOMMERCE = "woocommerce",
-  SHOPIFY = "shopify",
-}
+export type Finalizers =
+  | "hosted"
+  | "mobile"
+  | "popup"
+  | "woocommerce"
+  | "shopify";
 
 type CreateCheckoutUrlParams = {
-  host: Host;
+  env: Env;
   tbt: string;
   tracker: string;
   source: Finalizers;
