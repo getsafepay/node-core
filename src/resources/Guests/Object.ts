@@ -8,4 +8,9 @@ export const Object = SafepayResource.extend({
     method: "POST",
     path: "/v1/guest/",
   }),
+
+  createV2: safepayMethod({
+    method: "POST",
+    path: "/v2/guest/",
+  }),
 });
