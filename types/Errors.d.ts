@@ -13,18 +13,23 @@ declare module "@sfpy/node-core" {
                 readonly status?: number;
             };
             class SafepayInvalidRequestError extends SafepayError {
+                constructor(raw: SafepayRawError);
                 readonly type: 'SafepayInvalidRequestError';
             };
             class SafepayAPIError extends SafepayError {
+                constructor(raw: SafepayRawError);
                 readonly type: 'SafepayAPIError';
             };
             class SafepayAuthenticationError extends SafepayError {
+                constructor(raw: SafepayRawError);
                 readonly type: 'SafepayAuthenticationError';
             };
             class SafepayConflictError extends SafepayError {
+                constructor(raw: SafepayRawError);
                 readonly type: 'SafepayConflictError';
             };
             class SafepayUnknownError extends SafepayError {
+                constructor(raw: SafepayRawError);
                 readonly type: 'SafepayUnknownError';
             };
         }
