@@ -11,6 +11,7 @@ import { SignUp } from "./resources/User/SignUp.js";
 import { Password } from "./resources/User/Password.js";
 import { Object as UserObject } from "./resources/User/Object.js";
 import { Login } from "./resources/Auth/Login.js";
+import { Logout } from "./resources/Auth/Logout.js";
 import { Quicklinks } from "./resources/Invoice/Quicklinks.js";
 import { Payments as PaymentsResources } from "./resources/Reporter/Payments.js";
 import { Passport } from "./resources/Client/Passport.js";
@@ -49,6 +50,7 @@ export const User = resourceNamespace("user", {
 
 export const Auth = resourceNamespace("auth", {
   Login: Login,
+  Logout: Logout,
 });
 
 export const Invoice = resourceNamespace("invoice", {
