@@ -17,6 +17,7 @@
 ///<reference path='./User/Object.d.ts' />
 ///<reference path='./User/Cards.d.ts' />
 ///<reference path='./Auth/Login.d.ts' />
+///<reference path='./Auth/Logout.d.ts' />
 ///<reference path='./Invoice/Quicklinks.d.ts' />
 ///<reference path='./Reporter/Payments.d.ts' />
 ///<reference path='./Client/Passport.d.ts' />
@@ -68,6 +69,7 @@ declare module "@sfpy/node-core" {
 
     auth: {
       login: Safepay.Auth.Login;
+      logout: Safepay.Auth.Logout;
     };
 
     invoice: {
