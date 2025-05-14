@@ -12,6 +12,11 @@ export const Password = SafepayResource.extend({
   forgot: safepayMethod({
     method: "POST",
     path: "/v2/forget-password/",
+  }),
+
+  change: safepayMethod({
+    method: "POST",
+    path: "/v2/change-password/",
   })
 
 });

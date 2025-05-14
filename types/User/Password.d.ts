@@ -5,6 +5,8 @@ declare module "@sfpy/node-core" {
                 reset(params?: any, options?: any): Promise<any>;
 
                 forgot(params?: any, options?: any): Promise<any>;
+
+                change(params?: any, options?: any): Promise<any>;
             }
         }
     }
