@@ -18,6 +18,7 @@ import { Passport } from "./resources/Client/Passport.js";
 import { Discount } from "./resources/Order/Discount.js";
 import { Cards } from "./resources/User/Cards.js";
 import { Vault } from "./resources/Order/Vault.js";
+import { Partner } from "./resources/Raast/Partner.js";
 
 export const Customers = resourceNamespace("customers", {
   Object: Object,
@@ -63,4 +64,8 @@ export const Reporter = resourceNamespace("reporter", {
 
 export const Client = resourceNamespace("client", {
   Passport: Passport,
+});
+
+export const Raast = resourceNamespace("client", {
+  Partner: Partner,
 });
