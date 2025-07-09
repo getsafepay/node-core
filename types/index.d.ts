@@ -65,6 +65,7 @@ declare module "@sfpy/node-core" {
       password: Safepay.User.Password;
       object: Safepay.User.Object;
       cards: Safepay.User.Cards;
+      pushNotifications: Safepay.User.PushNotifications;
     };
 
     auth: {
