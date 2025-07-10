@@ -18,6 +18,7 @@ import { Passport } from "./resources/Client/Passport.js";
 import { Discount } from "./resources/Order/Discount.js";
 import { Cards } from "./resources/User/Cards.js";
 import { Vault } from "./resources/Order/Vault.js";
+import { PushNotifications } from "./resources/User/PushNotifications.js";
 
 export const Customers = resourceNamespace("customers", {
   Object: Object,
@@ -46,6 +47,7 @@ export const User = resourceNamespace("user", {
   Password: Password,
   Object: UserObject,
   Cards: Cards,
+  PushNotifications: PushNotifications
 });
 
 export const Auth = resourceNamespace("auth", {
