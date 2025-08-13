@@ -16,11 +16,13 @@
 ///<reference path='./User/Password.d.ts' />
 ///<reference path='./User/Object.d.ts' />
 ///<reference path='./User/Cards.d.ts' />
+///<reference path='./User/PushNotifications.d.ts' />
 ///<reference path='./Auth/Login.d.ts' />
 ///<reference path='./Auth/Logout.d.ts' />
 ///<reference path='./Invoice/Quicklinks.d.ts' />
 ///<reference path='./Reporter/Payments.d.ts' />
 ///<reference path='./Client/Passport.d.ts' />
+///<reference path='./Client/Discounts.d.ts' />
 
 declare module "@sfpy/node-core" {
   // Added to in other modules, referenced above.
@@ -83,6 +85,7 @@ declare module "@sfpy/node-core" {
 
     client: {
       passport: Safepay.Client.Passport;
+      discounts: Safepay.Client.Discounts;
     };
   }
   export default Safepay;
