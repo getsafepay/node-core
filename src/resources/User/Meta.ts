@@ -2,11 +2,11 @@ import { SafepayResource } from "../../SafepayResource.js";
 const safepayMethod = SafepayResource.method;
 
 export const Meta = SafepayResource.extend({
-  basePath: "/meta",
+  basePath: "/user",
 
   country: safepayMethod({
     method: "GET",
-    path: "/v2/country",
+    path: "meta/v2/country",
   }),
 
 });
