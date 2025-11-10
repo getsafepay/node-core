@@ -16,6 +16,7 @@
 ///<reference path='./User/Password.d.ts' />
 ///<reference path='./User/Object.d.ts' />
 ///<reference path='./User/Cards.d.ts' />
+///<reference path='./User/Meta.d.ts' />
 ///<reference path='./Auth/Login.d.ts' />
 ///<reference path='./Auth/Logout.d.ts' />
 ///<reference path='./Invoice/Quicklinks.d.ts' />
@@ -66,6 +67,7 @@ declare module "@sfpy/node-core" {
       object: Safepay.User.Object;
       cards: Safepay.User.Cards;
       pushNotifications: Safepay.User.PushNotifications;
+      meta: Safepay.User.Meta;
     };
 
     auth: {
