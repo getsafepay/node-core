@@ -16,6 +16,7 @@
 ///<reference path='./User/Password.d.ts' />
 ///<reference path='./User/Object.d.ts' />
 ///<reference path='./User/Cards.d.ts' />
+///<reference path='./User/PushNotifications.d.ts' />
 ///<reference path='./User/Meta.d.ts' />
 ///<reference path='./Auth/Login.d.ts' />
 ///<reference path='./Auth/Logout.d.ts' />
