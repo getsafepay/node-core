@@ -6,7 +6,7 @@ export const Meta = SafepayResource.extend({
 
   country: safepayMethod({
     method: "GET",
-    path: "meta/v2/country",
+    path: "/meta/v2/country",
   }),
 
 });
