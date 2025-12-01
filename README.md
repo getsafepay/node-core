@@ -12,9 +12,7 @@ Node 12 or higher.
 Install the package with:
 
 ```sh
-npm install @sfpy/node-core
-# or
-yarn add @sfpy/node-core
+pnpm add @sfpy/node-core
 ```
 
 ## Usage
