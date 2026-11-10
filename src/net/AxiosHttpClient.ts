@@ -72,6 +72,10 @@ export class AxiosHttpClient extends HttpClient {
               data: {
                 // @ts-ignore
                 message: data.status.errors.join(", "),
+                // Keep the API's `data` payload (e.g. card decline details:
+                // response_code, merchant_advice) so it reaches SafepayError.data.
+                // @ts-ignore
+                ...(data.data != null ? { data: data.data } : {}),
               },
             });
           }
