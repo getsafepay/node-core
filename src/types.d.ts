@@ -34,6 +34,11 @@ export type RequestSettings = { timeout?: number };
 export type SafepayRawError = {
   message?: string;
   status?: number;
+  /**
+   * The response's `data` payload. On a card decline this carries the issuer
+   * details, e.g. `{ response_code: "51", merchant_advice: { code, code_raw } }`.
+   */
+  data?: unknown;
 };
 
 export type MethodSpec = {

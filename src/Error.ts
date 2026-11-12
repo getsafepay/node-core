@@ -5,11 +5,18 @@ export class SafepayError extends Error {
   readonly type: string;
   readonly headers?: { [header: string]: string };
   readonly status?: number;
+  /**
+   * The error response's `data` payload, when the API sent one. On a card
+   * decline this carries the issuer details, e.g.
+   * `{ response_code: "51", merchant_advice: { code, code_raw } }`.
+   */
+  readonly data?: unknown;
 
   constructor(raw: SafepayRawError = {}, type: string | null = null) {
     super(raw.message);
     this.type = type || this.constructor.name;
     this.status = raw.status;
+    this.data = raw.data ?? undefined;
     // @ts-ignore
     this.message = raw.message;
   }
