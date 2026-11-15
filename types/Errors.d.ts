@@ -32,6 +32,10 @@ declare module "@sfpy/node-core" {
                 constructor(raw: SafepayRawError);
                 readonly type: 'SafepayUnknownError';
             };
+            class SafepaySignatureVerificationError extends SafepayError {
+                constructor(raw: SafepayRawError);
+                readonly type: 'SafepaySignatureVerificationError';
+            };
         }
     }
 }

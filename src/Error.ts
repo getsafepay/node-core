@@ -72,3 +72,13 @@ export class SafepayUnknownError extends SafepayError {
     super(raw, "SafepayUnknownError");
   }
 }
+
+/**
+ * SafepaySignatureVerificationError is raised when a webhook's
+ * x-sfpy-signature header does not match its payload.
+ */
+export class SafepaySignatureVerificationError extends SafepayError {
+  constructor(raw: SafepayRawError = {}) {
+    super(raw, "SafepaySignatureVerificationError");
+  }
+}
