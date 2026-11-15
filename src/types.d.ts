@@ -99,6 +99,7 @@ export type SafepayObject = {
   _requestSender: RequestSender;
   _getPropsFromConfig: (config: Record<string, unknown>) => UserProvidedConfig;
   checkout: any;
+  webhooks: any;
   errors: any;
 };
 

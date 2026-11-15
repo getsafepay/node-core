@@ -2,6 +2,7 @@
 ///<reference path='./net/net.d.ts' />
 ///<reference path='./Errors.d.ts' />
 ///<reference path='./Checkout.d.ts' />
+///<reference path='./Webhooks.d.ts' />
 ///<reference path='./Guests/Object.d.ts' />
 ///<reference path='./Customers/Object.d.ts' />
 ///<reference path='./Customers/Addresses.d.ts' />
@@ -39,6 +40,8 @@ declare module "@sfpy/node-core" {
     errors: typeof Safepay.errors;
 
     checkout: Safepay.Checkout;
+
+    webhooks: Safepay.Webhooks;
 
     customers: {
       object: Safepay.Customers.Object;

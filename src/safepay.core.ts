@@ -7,6 +7,7 @@ import { validateInteger, pascalToCamelCase } from "./utils.js";
 import { AxiosHttpClient } from "./net/AxiosHttpClient.js";
 import * as resources from "./resources.js";
 import { createCheckout } from "./Checkout.js";
+import { createWebhooks } from "./Webhooks.js";
 
 const DEFAULT_HOST = "api.getsafepay.com";
 
@@ -27,6 +28,7 @@ export function createSafepay(
   Safepay.HttpClient = HttpClient;
   Safepay.HttpClientResponse = HttpClientResponse;
   Safepay.checkout = createCheckout();
+  Safepay.webhooks = createWebhooks();
 
   function Safepay(
     this: SafepayObject,
@@ -66,6 +68,8 @@ export function createSafepay(
     this.SafepayResource = Safepay.SafepayResource;
 
     this.checkout = createCheckout();
+
+    this.webhooks = createWebhooks();
   }
 
   Safepay.errors = _Error;
@@ -76,6 +80,7 @@ export function createSafepay(
     errors: null!,
     _requestSender: null!,
     checkout: null!,
+    webhooks: null!,
 
     /**
      * @private

@@ -5,7 +5,7 @@
   "main": "cjs/safepay.cjs.node.js",
   "types": "types/index.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "pnpm run build-cjs && node --test \"test/**/*.test.js\"",
     "build": "pnpm run build-esm && pnpm run build-cjs",
     "build-esm": "mkdir -p esm && tsc -p tsconfig.esm.json && echo '{\"type\":\"module\"}' > esm/package.json",
     "build-cjs": "mkdir -p cjs && tsc -p tsconfig.cjs.json && echo '{\"type\":\"commonjs\"}' > cjs/package.json",

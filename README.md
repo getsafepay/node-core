@@ -86,6 +86,53 @@ safepay.customers.object
   });
 ```
 
+## Verifying webhooks
+
+Safepay signs every webhook with your endpoint's shared secret and sends the
+signature in the `X-SFPY-SIGNATURE` header (Node.js exposes it lowercased as
+`x-sfpy-signature`). The signature is a hex HMAC-SHA512 of the request body.
+
+Pass the **raw** request body so the bytes match exactly what Safepay signed:
+
+```js
+const express = require("express");
+const safepay = require("@sfpy/node-core")("SAFEPAY_SECRET_KEY", { authType: "secret" });
+
+const webhookSecret = process.env.SAFEPAY_WEBHOOK_SECRET; // Developers > Endpoints > View shared secret
+
+app.post("/webhooks/safepay", express.raw({ type: "application/json" }), (req, res) => {
+  let event;
+  try {
+    event = safepay.webhooks.constructEvent(req.body, req.headers["x-sfpy-signature"], webhookSecret);
+  } catch (err) {
+    return res.status(400).send(`Webhook Error: ${err.message}`);
+  }
+
+  switch (event.type) {
+    case "payment.succeeded":
+      // fulfil the order using event.data
+      break;
+    case "payment.failed":
+      // notify the customer
+      break;
+    default:
+      console.log(`Unhandled event type ${event.type}`);
+  }
+  res.sendStatus(200);
+});
+```
+
+When you rotate the shared secret, pass both secrets so webhooks signed with
+the previous one are still accepted while the change propagates:
+
+```js
+safepay.webhooks.constructEvent(req.body, signature, [newSecret, oldSecret]);
+```
+
+`constructEvent` throws `SafepaySignatureVerificationError` if the signature is
+missing or does not match. `safepay.webhooks.verifySignature(...)` returns a
+boolean instead.
+
 ## Configuration
 
 ### Initialize with config object
